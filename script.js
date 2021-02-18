@@ -3,7 +3,6 @@
 const request1 = new XMLHttpRequest();
 request1.onreadystatechange = function() {
     if (this.readyState === 4) {
-        console.log(this.responseText);
         var data = JSON.parse(this.responseText);
         var dogImage = document.getElementById('dog-image');
         dogImage.src = data.message;
@@ -18,11 +17,8 @@ request1.send();
 const request2 = new XMLHttpRequest();
 request2.onreadystatechange = function() {
     if (request2.readyState === 4) {
-        console.log(this.responseText);
         var data = JSON.parse(this.responseText);
-        console.log(data.message);
         var breedsArr = Object.keys(data.message);
-        console.log(breedsArr);
 
         // For Loop creating the options within the select drop-down corresponding to breed-subbreed
         for (let i=0; i<breedsArr.length; i++) {
