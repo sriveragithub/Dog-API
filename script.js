@@ -3,8 +3,8 @@
 const request1 = new XMLHttpRequest();
 request1.onreadystatechange = function() {
     if (this.readyState === 4) {
-        var data = JSON.parse(this.responseText);
-        var dogImage = document.getElementById('dog-image');
+        let data = JSON.parse(this.responseText);
+        let dogImage = document.getElementById('dog-image');
         dogImage.src = data.message;
     }
 }
@@ -17,21 +17,19 @@ request1.send();
 const request2 = new XMLHttpRequest();
 request2.onreadystatechange = function() {
     if (request2.readyState === 4) {
-        var data = JSON.parse(this.responseText);
-        var breedsArr = Object.keys(data.message);
+        let data = JSON.parse(this.responseText);
+        let breedsArr = Object.keys(data.message);
 
         // For Loop creating the options within the select drop-down corresponding to breed-subbreed
         for (let i=0; i<breedsArr.length; i++) {
+            let sel = document.getElementById('select-breed');
+            let opt = document.createElement('option');
             if (data.message[breedsArr[i]].length === 0) {
-                let sel = document.getElementById('select-breed');
-                let opt = document.createElement('option');
                 opt.innerHTML = breedsArr[i];
                 opt.value = breedsArr[i];
                 sel.appendChild(opt);
             } else if (data.message[breedsArr[i]].length !== 0) {
                 for (let x=0; x<data.message[breedsArr[i]].length; x++) {
-                    let sel = document.getElementById('select-breed');
-                    let opt = document.createElement('option');
                     let breed = breedsArr[i];
                     let subBreed = data.message[breedsArr[i]][x]
                     opt.innerHTML = `${subBreed} ${breed}`;
