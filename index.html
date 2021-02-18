@@ -5,15 +5,35 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Random Dog Generator</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <img id="dog-image" src="#" alt="random image of a dog">
-        <form>
-            <select name="select-breed" id="select-breed">
-            </select>
-            <button id="get-breed" type="button">Get Breed</button>
-        </form>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2" id="backgroundcol">
+                </div>
+
+                <div class="col-8">
+                    <h1>Doggy Generator &#128062;</h1>
+                    <form>
+                        <div align="center" style="padding-bottom: 2%">
+                            <select name="select-breed" id="select-breed">
+                            </select>
+                            <button class="btn btn-outline-success" id="get-breed" type="button">Get Breed</button>
+                        </div>
+                        <br><br>
+                    </form>
+                    <img class="center" id="dog-image" src="#" alt="random image of a dog" style="border-radius: 10%; padding-bottom: 1%;">
+                </div>
+
+                <div class="col-2" id="backgroundcol">
+                </div>
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>

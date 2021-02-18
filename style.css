@@ -1,3 +1,30 @@
-img {
-    width: 400px;
+h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    color: rgba(15, 99, 15, 0.651);
+    padding-bottom: 2%;
+}
+.container-fluid,
+.row {
+    height: 100vh;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    /* border-radius: 20%; */
+}
+#backgroundcol {
+    background-color: rgba(15, 99, 15, 0.651);
+    background-size: auto;
+    ;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
 }
