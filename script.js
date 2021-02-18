@@ -9,7 +9,6 @@ request1.onreadystatechange = function() {
         dogImage.src = data.message;
     }
 }
-
 request1.open('GET', 'https://dog.ceo/api/breeds/image/random');
 request1.send();
 
@@ -47,54 +46,38 @@ request2.onreadystatechange = function() {
         }
     }
 }
-
 request2.open('GET', 'https://dog.ceo/api/breeds/list/all');
 request2.send();
 
+// Setting IDs and then creating event listener on button click
+// Button event listener is look at the select.value, seeing if it contains a '-')
+const select = document.getElementById('select-breed');
+const button = document.getElementById('get-breed');
+button.addEventListener('click', function() {
+    // if select.value contains a '-' split the string into the array and use the array values in the URL
+    if (select.value.includes('-')) {
+        let strSplitArr = select.value.split('-')
+        let url = `https://dog.ceo/api/breed/${strSplitArr[0]}/${strSplitArr[1]}/images/random`
+        getDog(url);
+    // if select.value doesn't contain a '-', set the select.value in the URL
+    } else {
+        let url = `https://dog.ceo/api/breed/${select.value}/images/random`
+        getDog(url);
+    }
+})
 
-// const request3 = new XMLHttpRequest();
-// request3.onreadystatechange = function() {
-//     if (request3.readyState === 4) {
-
-
-
-// var link = `https://dog.ceo/api/breed/${breed}/${subbreed}/list/random`;
-
-// request3.open('GET', link);
-// request3.send();
-
-
-
-
-
-
-
-
-
- // var sel = document.getElementById('select-breed');
-        // for (var key in data.message) {
-        //     if (data.message.hasOwnProperty(key)) {
-
-                
-        //         var i = 0;
-        //         if (data.message[key].length === 0) {
-        //             console.log(data.message['bulldog']);
-        //             let breedName = data.message[i];
-        //             var opt = document.createElement('option');
-        //             opt.innerHTML = breedName;
-        //             opt.value = breedName;
-        //             sel.appendChild(opt);
-        //             i++;
-        //         } else if (data.message[key].length !== 0) {
-        //             console.log(data.message[key])
+// Sets the dog image as a variable and then receives the getDog(url) call from the event listener click which fetchs the URL and sets the image
+const getDogImage = document.getElementById('dog-image');
+const getDog = url => {
+    fetch(url)
+        .then(res => {
+            return res.json();
+        })
+        .then(data => {
+            getDogImage.src = data.message;
+        })
+}
 
 
-        //         }
 
 
-                // var opt = document.createElement('option');
-                // opt.innerHtml = data.message[key];
-                // opt.value = data.message[key];
-                // sel.appendChild(opt);
-        //     }
-        // }

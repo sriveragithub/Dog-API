@@ -1,3 +1,8 @@
+// UNUSED EXAMPLE CODE FROM :
+// https://medium.com/swlh/dog-app-using-javascript-with-an-api-72d944af6773
+
+
+
 const BREEDS_URL = 'https://dog.ceo/api/breeds/list/all';
 
 const select = document.querySelector('.breeds');
